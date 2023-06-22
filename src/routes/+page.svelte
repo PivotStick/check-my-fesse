@@ -22,8 +22,6 @@
 	$: localStorage.setItem(key, JSON.stringify(faces));
 </script>
 
-<pre>{navigator.serviceWorker}</pre>
-
 <ul>
 	{#each faces as face}
 		<li transition:slide>
