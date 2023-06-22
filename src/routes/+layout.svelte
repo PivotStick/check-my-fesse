@@ -26,7 +26,8 @@
 			align-items: center;
 			justify-content: center;
 			font-size: 2rem;
-			padding-top: env(safe-area-inset-top);
+
+			padding-top: calc(env(safe-area-inset-top) + 1rem);
 		}
 
 		main {
