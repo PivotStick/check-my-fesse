@@ -38,7 +38,7 @@
 	ul {
 		display: grid;
 		$gap: 3.5rem;
-		padding: 2rem;
+		padding: 1rem;
 
 		li {
 			&:not(:last-child) {
