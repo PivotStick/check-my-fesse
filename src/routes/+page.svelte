@@ -1,36 +1,18 @@
 <script>
 	import Face from "$lib/components/Face.svelte";
+	import { faces } from "$lib/stores/faces";
 	import { slide } from "svelte/transition";
-
-	const addNewFace = () => {
-		faces.push({
-			image: "",
-			name: "",
-			rating: 0,
-			tags: [""]
-		});
-		faces = faces;
-	};
-
-	const key = "_RATE_MY_FESSE_DATA_";
-
-	/**
-	 * @type {FaceItem[]}
-	 */
-	let faces = JSON.parse(localStorage.getItem(key) || "[]");
-
-	$: localStorage.setItem(key, JSON.stringify(faces));
 </script>
 
 <ul>
-	{#each faces as face}
+	{#each $faces as face (face.id)}
 		<li transition:slide>
-			<Face bind:face on:delete={() => (faces = faces.filter((f) => f !== face))} />
+			<Face bind:face on:delete={() => ($faces = $faces.filter((f) => f !== face))} />
 		</li>
 	{/each}
 
 	<li class="new">
-		<button on:click={addNewFace}><i class="fa fa-plus" /></button>
+		<button on:click={faces.add}><i class="fa fa-plus" /></button>
 	</li>
 </ul>
 

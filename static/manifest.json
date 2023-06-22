@@ -1,5 +1,6 @@
 {
 	"display": "standalone",
 	"short_name": "Rate my Fesse",
-	"name": "Rate my Fesse"
+	"name": "Rate my Fesse",
+	"theme_color": "#494cac"
 }

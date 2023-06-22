@@ -12,6 +12,7 @@
 	-webkit-tap-highlight-color: transparent;
 
 	color: var(--color-900);
+	background-color: var(--color-700);
 }
 
 *,
@@ -35,6 +36,7 @@ button {
 	cursor: pointer;
 
 	background-color: var(--color-200);
+	color: var(--on-color-200);
 	border: none;
 	padding: 0.5rem 1rem;
 	border-radius: 2rem;

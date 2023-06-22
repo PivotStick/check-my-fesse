@@ -1,4 +1,6 @@
 <script>
+	import { fileToBase64 } from "$lib/functions/fileToBase64";
+	import { resizeBase64Image } from "$lib/functions/resizeBase64Image";
 	import { createEventDispatcher, tick } from "svelte";
 
 	/**
@@ -59,18 +61,22 @@
 
 	const dispatch = createEventDispatcher();
 
+	/**
+	 * @param {File} file
+	 */
+	const loadFile = async (file) => {
+		try {
+			const base64 = await fileToBase64(file);
+			face.image = await resizeBase64Image(base64);
+		} catch (error) {
+			face.image = "";
+		}
+	};
+
 	$: if (files) {
 		const file = files.item(0);
-
 		if (file) {
-			const reader = new FileReader();
-			reader.readAsDataURL(file);
-			reader.onload = () => {
-				if (typeof reader.result === "string") {
-					face.image = reader.result;
-				}
-			};
-			reader.onerror = () => (face.image = "");
+			loadFile(file);
 		}
 	}
 </script>
