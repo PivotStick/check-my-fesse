@@ -25,7 +25,7 @@ const makeFaces = () => {
 
 	const add = () => {
 		update((faces) => {
-			faces.push({
+			faces.unshift({
 				id: v4(),
 				image: "",
 				name: "",

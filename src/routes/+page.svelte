@@ -5,15 +5,15 @@
 </script>
 
 <ul>
+	<li class="new">
+		<button on:click={faces.add}><i class="fa fa-plus" /></button>
+	</li>
+
 	{#each $faces as face (face.id)}
 		<li transition:slide>
 			<Face bind:face on:delete={() => ($faces = $faces.filter((f) => f !== face))} />
 		</li>
 	{/each}
-
-	<li class="new">
-		<button on:click={faces.add}><i class="fa fa-plus" /></button>
-	</li>
 </ul>
 
 <style lang="scss">

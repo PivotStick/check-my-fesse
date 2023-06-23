@@ -119,7 +119,7 @@
 
 		display: grid;
 		grid-template-columns: auto 1fr;
-		gap: 2rem;
+		gap: 1rem;
 
 		.head {
 			display: flex;
@@ -208,19 +208,24 @@
 
 		.rating {
 			display: flex;
-			gap: 0.25rem;
+			align-items: center;
+			translate: -4px;
+			gap: 0.5rem;
 
 			i {
-				font-size: 2rem;
+				font-size: 1.5rem;
 				color: var(--color-300);
-				scale: 0.8;
 
-				transition-property: color, scale;
+				transition-property: color, font-size, scale;
 				transition-delay: calc(var(--index) * 20ms);
 
 				&.active {
 					color: var(--color-800);
-					scale: 1;
+					font-size: 2rem;
+				}
+
+				&:active {
+					scale: 0.8;
 				}
 			}
 		}
